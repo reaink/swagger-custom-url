@@ -1,0 +1,49 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.25.0/swagger-ui.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.25.0/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.25.0/favicon-16x16.png" sizes="16x16" />
+    <style>
+      .swagger-ui .model {
+        font-family: 'Microsoft YaHei';
+      }
+      .swagger-ui .opblock-body pre.microlight {
+        font-family: 'Source Code Variable';
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.25.0/swagger-ui-bundle.js'
+      import 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.25.0/swagger-ui-standalone-preset.js'
+      import 'https://cdn.jsdelivr.net/npm/qs@6.9.3/dist/qs.js'
+      // Begin Swagger UI call region
+      /**
+       * ?swg=https://petstore.swagger.io/v2/swagger.json
+       **/
+      const qsURL = Qs.parse(location.href.split('?')[1])
+      const swgAPI = qsURL.swg || "https://petstore.swagger.io/v2/swagger.json"
+      const ui = SwaggerUIBundle({
+        url: swgAPI,
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      })
+  </script>
+  </body>
+</html>
