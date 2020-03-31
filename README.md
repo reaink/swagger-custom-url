@@ -6,4 +6,5 @@
 ``` bash
 https://nshu.gitee.io/swagger-custom-url?swg=文档地址
 ```
-示例：https://nshu.gitee.io/swagger-custom-url?swg=文档地址
+示例
+ - 码云文档：https://nshu.gitee.io/swagger-custom-url?swg=https://gitee.com/api/v5/doc_json
